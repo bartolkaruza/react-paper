@@ -4,6 +4,7 @@ var React = require('react/addons');
 
 var Shadow = require('./Shadow');
 var Ripple = require('./Ripple');
+var classNames = require('classnames');
 
 require('./css')('\
 .button {\
@@ -45,7 +46,7 @@ var Button = React.createClass({displayName: 'Button',
     if (this.props.color)
       buttonStyle.color = this.props.color;
 
-    var buttonClass = React.addons.classSet({
+    var buttonClass = classNames({
       button: true,
       hover: this.props.hover
     });

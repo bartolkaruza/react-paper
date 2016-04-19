@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/OlavHN/react-paper/issues"
   },
-  "homepage": "https://github.com/OlavHN/react-paper"
+  "homepage": "https://github.com/OlavHN/react-paper",
+  "dependencies": {
+    "classnames": "^2.2.3"
+  }
 }
