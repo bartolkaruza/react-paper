@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-var React = require('react/addons');
+var React = require('react');
 
 require('./css')('\
   .ripple {\
@@ -160,7 +160,7 @@ var Ripple = React.createClass({displayName: 'Ripple',
   waves: [],
 
   downAction: function(e) {
-    var wave = this.createWave(this.props.elem.getDOMNode());
+    var wave = this.createWave(React.findDOMNode(this.props.elem));
 
     this.cancelled = false;
     wave.isMouseDown = true;
