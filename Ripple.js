@@ -364,7 +364,6 @@ var Ripple = React.createClass({displayName: 'Ripple',
       // clear the background color
       this.bg ? React.findDOMNode(this.bg).style.backgroundColor = null : '';
       this._loop = null;
-      console.log('core-transitionend');
     }
   }
 });
