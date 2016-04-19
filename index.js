@@ -5,5 +5,6 @@ module.exports = {
   Dialog: require('./Dialog'),
   Switch: require('./Switch'),
   Progress: require('./Progress'),
-  Slider: require('./Slider')
+  Slider: require('./Slider'),
+  Ripple: require('./Ripple')
 };
