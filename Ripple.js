@@ -247,13 +247,13 @@ var Ripple = React.createClass({displayName: 'Ripple',
     outer.classList.add('wave-container');
     outer.appendChild(inner);
 
-    var container = this.refs.waves.getDOMNode();
+    var container = React.findDOMNode(this.refs.waves);
     container.appendChild(outer);
 
-    this.refs.bg.getDOMNode().style.backgroundColor = fgColor;
+    React.findDOMNode(this.refs.bg).style.backgroundColor = fgColor;
 
     var wave = {
-      bg: this.refs.bg.getDOMNode(),
+      bg: React.findDOMNode(this.refs.bg),
       wc: outer,
       wave: inner,
       waveColor: fgColor,
@@ -362,7 +362,7 @@ var Ripple = React.createClass({displayName: 'Ripple',
 
     if (!this.waves.length && this._loop) {
       // clear the background color
-      this.refs.bg.getDOMNode().style.backgroundColor = null;
+      React.findDOMNode(this.refs.bg).style.backgroundColor = null;
       this._loop = null;
       console.log('core-transitionend');
     }
