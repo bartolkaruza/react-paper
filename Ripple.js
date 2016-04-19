@@ -229,8 +229,8 @@ var Ripple = React.createClass({displayName: 'Ripple',
   render: function() {
     return (
       React.createElement("div", {onMouseDown: this.downAction, onMouseUp: this.upAction, onMouseLeave: this.upAction, className: "ripple"}, 
-        React.createElement("div", {className: "bg", ref: "bg"}), 
-        React.createElement("div", {className: "waves", ref: "waves"})
+        React.createElement("div", {className: "bg", ref: bg => this.bg = bg}),
+        React.createElement("div", {className: "waves", ref: waves => this.waves = waves})
       )
     );
   },
@@ -247,13 +247,13 @@ var Ripple = React.createClass({displayName: 'Ripple',
     outer.classList.add('wave-container');
     outer.appendChild(inner);
 
-    var container = React.findDOMNode(this.refs.waves);
+    var container = React.findDOMNode(this.waves);
     container.appendChild(outer);
 
-    React.findDOMNode(this.refs.bg).style.backgroundColor = fgColor;
+    this.bg ? React.findDOMNode(this.bg).style.backgroundColor = fgColor : '';
 
     var wave = {
-      bg: React.findDOMNode(this.refs.bg),
+      bg: React.findDOMNode(this.bg),
       wc: outer,
       wave: inner,
       waveColor: fgColor,
@@ -362,7 +362,7 @@ var Ripple = React.createClass({displayName: 'Ripple',
 
     if (!this.waves.length && this._loop) {
       // clear the background color
-      React.findDOMNode(this.refs.bg).style.backgroundColor = null;
+      this.bg ? React.findDOMNode(this.bg).style.backgroundColor = null : '';
       this._loop = null;
       console.log('core-transitionend');
     }
