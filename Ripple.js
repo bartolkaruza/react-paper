@@ -40,7 +40,7 @@ var waveMaxRadius = 150;
 // Helper funcs
 var pow = Math.pow;
 var now = Date.now;
-if (window.performance && performance.now) {
+if (typeof(window) !== 'undefined' && window.performance && performance.now) {
   now = performance.now.bind(performance);
 }
 

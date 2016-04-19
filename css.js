@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(css) {
-  if(typeof(document) !== undefined) {
+  if(typeof(document) !== 'undefined') {
     var style = document.createElement('style');
     style.rel = 'stylesheet';
     style.type = 'text/css';
