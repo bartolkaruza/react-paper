@@ -230,7 +230,7 @@ var Ripple = React.createClass({displayName: 'Ripple',
     return (
       React.createElement("div", {onMouseDown: this.downAction, onMouseUp: this.upAction, onMouseLeave: this.upAction, className: "ripple"}, 
         React.createElement("div", {className: "bg", ref: bg => this.bg = bg}),
-        React.createElement("div", {className: "waves", ref: waves => this.waves = waves})
+        React.createElement("div", {className: "waves", ref: waves => this.wavesRefs = waves})
       )
     );
   },
@@ -247,7 +247,7 @@ var Ripple = React.createClass({displayName: 'Ripple',
     outer.classList.add('wave-container');
     outer.appendChild(inner);
 
-    var container = React.findDOMNode(this.waves);
+    var container = React.findDOMNode(this.wavesRefs);
     container.appendChild(outer);
 
     this.bg ? React.findDOMNode(this.bg).style.backgroundColor = fgColor : '';
