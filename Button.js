@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var React = require('react/addons');
+var React = require('react');
 
 var Shadow = require('./Shadow');
 var Ripple = require('./Ripple');
@@ -51,13 +51,13 @@ var Button = React.createClass({displayName: 'Button',
       hover: this.props.hover
     });
 
-    return this.transferPropsTo(
-      React.createElement("div", {ref: "button", className: buttonClass, style: buttonStyle}, 
-        React.createElement(Ripple, {elem: this.refs.button}), 
-        raised ? React.createElement(Shadow, null) : null, 
-        this.props.children
-      )
+    var Component = React.createElement("div", {ref: "button", className: buttonClass, style: buttonStyle},
+      React.createElement(Ripple, {elem: this.refs.button}),
+      raised ? React.createElement(Shadow, null) : null,
+      this.props.children
     );
+
+    return Component(Object.assign({}, this.props));
   },
 });
 
