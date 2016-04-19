@@ -51,13 +51,11 @@ var Button = React.createClass({displayName: 'Button',
       hover: this.props.hover
     });
 
-    var Component = React.createElement("div", {ref: "button", className: buttonClass, style: buttonStyle},
+    return React.createElement("div", Object.assign({ref: "button", className: buttonClass, style: buttonStyle}, this.props),
       React.createElement(Ripple, {elem: this.refs.button}),
       raised ? React.createElement(Shadow, null) : null,
       this.props.children
     );
-
-    return Component(Object.assign({}, this.props));
   },
 });
 
