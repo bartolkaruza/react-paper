@@ -229,8 +229,12 @@ var Ripple = React.createClass({displayName: 'Ripple',
   render: function() {
     return (
       React.createElement("div", {onMouseDown: this.downAction, onMouseUp: this.upAction, onMouseLeave: this.upAction, className: "ripple"}, 
-        React.createElement("div", {className: "bg", ref: bg => this.bg = bg}),
-        React.createElement("div", {className: "waves", ref: waves => this.wavesRefs = waves})
+        React.createElement("div", {className: "bg", ref: function (bg) {
+          this.bg = bg;
+        }}),
+        React.createElement("div", {className: "waves", ref: function (waves) {
+          this.wavesRefs = waves;
+        }})
       )
     );
   },
