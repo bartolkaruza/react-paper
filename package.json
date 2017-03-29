@@ -4,7 +4,8 @@
   "description": "React UI components inspired by Google Material Design",
   "main": "index.js",
   "peerDependencies": {
-    "react": ">=1.4"
+    "react": ">=15.4",
+    "react-dom": ">=15.4"
   },
   "repository": {
     "type": "git",
